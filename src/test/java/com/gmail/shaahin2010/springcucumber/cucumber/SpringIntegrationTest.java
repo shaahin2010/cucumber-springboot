@@ -14,14 +14,18 @@ import org.springframework.web.client.ResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
 import com.gmail.shaahin2010.springcucumber.SpringCucumberApplication;
+import com.gmail.shaahin2010.springcucumber.service.IsItFridayService;
 
 @SpringBootTest(classes = SpringCucumberApplication.class, webEnvironment = WebEnvironment.DEFINED_PORT)
 @ContextConfiguration
 public class SpringIntegrationTest {
 	static ResponseResults latestResponse = null;
-	
+
 	@Autowired
 	protected RestTemplate restTemplate;
+
+	@Autowired
+	protected IsItFridayService isItFridayService;
 
 	void executeGet(String url) throws IOException {
 		final Map<String, String> headers = new HashMap<>();
